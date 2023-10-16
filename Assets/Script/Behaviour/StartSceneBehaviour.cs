@@ -4,6 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Video;
+using UnityEngine.Events;
 
 public class StartSceneBehaviour : MonoBehaviour
 {
@@ -20,8 +21,12 @@ public class StartSceneBehaviour : MonoBehaviour
     [SerializeField] Button topik2Button;
     [SerializeField] Button topik3Button;
 
+    private StartStopVideo startStopVideo;
+    private VideoPlayer videoPlayerClass;
     void Start()
     {
+        startStopVideo = FindAnyObjectByType<StartStopVideo>();
+
         startPanel.SetActive(true);
         headCanvas.SetActive(true);
         videoCanvas.SetActive(false);
@@ -67,7 +72,7 @@ public class StartSceneBehaviour : MonoBehaviour
 
     private void Update()
     {
-        if(!MenuHandler.menuInstance.topik1Done)
+        if (!MenuHandler.menuInstance.topik1Done)
         {
             topik2Locker.SetActive(true) ;
 
@@ -112,6 +117,8 @@ public class StartSceneBehaviour : MonoBehaviour
         LeanTween.scale(startPanel.gameObject, new Vector3(1f, 1f, 1f), 0.5f);
         videoPlayer.SetActive(false);
         videoCanvas.SetActive(false);
+        MenuHandler.menuInstance.videoDonePlay = true;
+        MenuHandler.menuInstance.PlayBGM();
     }
 
     public void ServiceButtonPressed()
@@ -216,5 +223,11 @@ public class StartSceneBehaviour : MonoBehaviour
         nextToEndButton.interactable = true;
         kursor1Collider.SetActive(false);
         kursor2Collider.SetActive(false);
+    }
+
+    public void CheatButtonPressed()
+    {
+        MenuHandler.menuInstance.topik1Done = true;
+        MenuHandler.menuInstance.topik2Done = true;
     }
 }        

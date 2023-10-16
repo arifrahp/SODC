@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
+    public static AudioManager audioInstance;
     static AudioSource bgmInstance;
     [SerializeField] AudioSource bgm;
 
@@ -22,6 +23,14 @@ public class AudioManager : MonoBehaviour
             bgmInstance = bgm;
             bgm.transform.SetParent(null);
             DontDestroyOnLoad(bgm.gameObject);
+        }
+    }
+
+    private void Update()
+    {
+        if (MenuHandler.menuInstance.videoDonePlay)
+        {
+            PlayBGM();
         }
     }
 
@@ -45,5 +54,15 @@ public class AudioManager : MonoBehaviour
     public void SetBGMVolume(float value)
     {
         bgm.volume = value;
+    }
+
+    public void PauseBGM()
+    {
+        bgm.Play();
+    }
+    
+    public void PlayBGM()
+    {
+        bgm.Pause();
     }
 }

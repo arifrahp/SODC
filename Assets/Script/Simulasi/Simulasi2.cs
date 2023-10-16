@@ -144,7 +144,7 @@ public class Simulasi2 : MonoBehaviour
     {
         tutorKanvas.SetActive(false);
         quisKanvas.gameObject.SetActive(true);
-        StartCoroutine(CloseTitlePanel(10f));
+        StartCoroutine(CloseTitlePanel(5f));
     }
 
     public void CorrectAnswer()

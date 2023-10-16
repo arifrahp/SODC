@@ -112,12 +112,18 @@ public class Simulasi1 : MonoBehaviour
                 else if (olsObject.modulation == 270)
                 {
                     opmObject.angkaHasil = -17.20;
-                    kalibrasi2IsDone = true;
+                    if(kalibrasi1IsDone)
+                    {
+                        kalibrasi2IsDone = true;
+                    }
                 }
                 else if (olsObject.modulation == 1000)
                 {
                     opmObject.angkaHasil = -17.13;
-                    kalibrasi3IsDone = true;
+                    if (kalibrasi2IsDone)
+                    {
+                        kalibrasi3IsDone = true;
+                    }
                 }
             }
         }
@@ -247,7 +253,7 @@ public class Simulasi1 : MonoBehaviour
     {
         tutorKanvas.SetActive(false);
         quisKanvas.gameObject.SetActive(true);
-        StartCoroutine(CloseTitlePanel(10f));
+        StartCoroutine(CloseTitlePanel(5f));
     }
 
     public void CorrectAnswer()

@@ -7,9 +7,12 @@ public class MenuHandler : MonoBehaviour
 {
     public static MenuHandler menuInstance;
 
+    public bool videoDonePlay = false;
     public bool countDownIsDone = false;
     public bool topik1Done = false;
     public bool topik2Done = false;
+
+    public AudioSource audioSource;
 
     private void Awake()
     {
@@ -23,6 +26,11 @@ public class MenuHandler : MonoBehaviour
             menuInstance = this;
             DontDestroyOnLoad(gameObject);
         }
+    }
+
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
     }
 
     public void ServerLevel()
@@ -63,5 +71,15 @@ public class MenuHandler : MonoBehaviour
     public void QuitButton()
     {
         Application.Quit();
+    }
+
+    public void PlayBGM()
+    {
+        audioSource.Play();
+    }
+    
+    public void PauseBGM()
+    {
+        audioSource.Pause();
     }
 }
