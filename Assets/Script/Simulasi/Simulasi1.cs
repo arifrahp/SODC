@@ -230,7 +230,7 @@ public class Simulasi1 : MonoBehaviour
 
     public void PreKuis()
     {
-        tutorText.text = "Anda telah menyelesaikan kalibrasi, tekan tulisan ini untuk melanjutkan ke kuis";
+        tutorText.text = "Anda telah menyelesaikan kalibrasi. \n \n Selanjutnya >";
     }
 
     public void SimulasiKalibrasiDone()

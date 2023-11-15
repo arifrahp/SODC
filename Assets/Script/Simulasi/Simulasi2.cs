@@ -138,7 +138,7 @@ public class Simulasi2 : MonoBehaviour
 
     public void PreKuis()
     {
-        tutorText.text = "Amati hasil display pada OPM \n Jika hasil menunjukan -6.99, maka pengukuran selesai, tekan tulisan ini untuk melanjutkan ke Kuis";
+        tutorText.text = "Amati hasil display pada OPM \n Jika hasil menunjukan -6.99, maka pengukuran selesai. \n \n Selanjutnya >";
     }
     public void Kuis()
     {

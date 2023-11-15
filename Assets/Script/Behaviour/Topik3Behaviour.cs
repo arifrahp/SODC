@@ -17,6 +17,8 @@ public class Topik3Behaviour : MonoBehaviour
     public GameObject transitionSphere;
 
     private GameObject simulasiCurentlyInActive;
+
+    
     void Start()
     {
         simulasi1.SetActive(false); 
